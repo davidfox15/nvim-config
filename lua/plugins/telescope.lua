@@ -50,6 +50,7 @@ return {
 		vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
 		-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+		vim.keymap.set("n", "<Leader>fo", ":Telescope oldfiles<CR>", { noremap = true, silent = true })
 		require("telescope").load_extension "file_browser"
 	end
 }
