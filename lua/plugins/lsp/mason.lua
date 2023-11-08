@@ -3,10 +3,8 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-	},
-	opts = {
-	},
-	config = function(_, opts)
+  },
+  config = function()
     -- import mason
     local mason = require("mason")
 
@@ -54,5 +52,5 @@ return {
         "eslint_d", -- js linter
       },
     })
-	end
+  end,
 }
