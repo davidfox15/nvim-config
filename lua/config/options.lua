@@ -10,6 +10,7 @@ vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.showmatch = true
+vim.opt.incsearch = true
 -- Tab
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -31,3 +32,9 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+
+vim.opt.scrolloff = 8
+
+vim.opt.updatetime = 50
+
+vim.opt.termguicolors = true

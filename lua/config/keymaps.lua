@@ -8,16 +8,10 @@ vim.keymap.set("n", "dw", 'vb"_d')
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Do not yank with x
-vim.keymap.set("n", "x", '"_x')
+-- vim.keymap.set("n", "x", '"_x')
 
 -- clear search highlights
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
--- New tab
-
-vim.keymap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
-vim.keymap.set("n", "<leader>tt", ":tabedit %:p<CR>", { desc = "Duplicate tab" })
-vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Split window
 vim.keymap.set("n", "ss", ":split<Return>")
@@ -37,3 +31,22 @@ vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Comments
 -- vim.keymap.set("n", "<leader>cc", "gcc", { desc = "Comment line" })
+
+-- move select up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- move next line to cursor line
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- stay cursor in center, when move
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- no copy when paste
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- file history
+-- vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undotree" })

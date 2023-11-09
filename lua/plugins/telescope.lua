@@ -52,6 +52,7 @@ return {
 			},
 		})
 		local builtin = require("telescope.builtin")
+
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 		vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
@@ -61,9 +62,9 @@ return {
 		vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", {})
 
 		-- git
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, {})
-		vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, {})
+		vim.keymap.set("n", "<leader>gfc", builtin.git_commits, { desc = "Telescope find git commits" })
+		vim.keymap.set("n", "<leader>gfs", builtin.git_status, { desc = "Telescope find git status" })
+		vim.keymap.set("n", "<leader>gfb", builtin.git_branches, { desc = "Telescope find git branches" })
 
 		require("telescope").load_extension("file_browser")
 	end,

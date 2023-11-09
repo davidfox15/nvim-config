@@ -8,7 +8,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
 	install = {
-		colorscheme = { "tokyonight" },
+		colorscheme = { "neosolarized" },
 	},
 	checker = {
 		enabled = true,
