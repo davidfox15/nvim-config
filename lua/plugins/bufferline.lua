@@ -15,13 +15,13 @@ return {
 	keys = {
 		-- new empty tab
 		{
-			"tn",
+			"te",
 			":tabedit<CR>",
 			desc = "New tab",
 		},
 		-- new duplicate current tab
 		{
-			"td",
+			"tp",
 			":tabedit %:p<CR>",
 			desc = "Duplicate tab",
 		},

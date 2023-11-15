@@ -38,3 +38,7 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
 vim.opt.termguicolors = true
+-- recommended settings from nvim-tree documentation
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.netrw_liststyle = 3

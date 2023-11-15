@@ -10,14 +10,10 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local fb_actions = require("telescope._extensions.file_browser.actions")
 
 		telescope.setup({
 			defaults = {
 				layout_strategy = "horizontal",
-				-- layout_config = { prompt_position = "top" },
-				-- sorting_strategy = "ascending",
-				-- winblend = 0,
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -29,23 +25,27 @@ return {
 					"node_modules",
 				},
 			},
-			extensions = {
-				file_browser = {
-					finders = {
-						finder = {
-							depth = false,
-						},
-					},
-					initial_mode = "normal",
-					mappings = {
-						["n"] = {
-							["h"] = fb_actions.goto_parent_dir,
-						},
+			pickers = {
+				oldfiles = {
+					find_files = {
+						-- not work (show ./ dir in oldfiles)
+						find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 					},
 				},
+				lsp_references = {
+					initial_mode = "normal",
+					show_line = false,
+				},
+				lsp_definitions = {
+					initial_mode = "normal",
+					show_line = false,
+				},
+			},
+			extensions = {
 				git_status = {
 					initial_mode = "normal",
 				},
+
 				grep_string = {
 					initial_mode = "normal",
 				},
@@ -53,9 +53,9 @@ return {
 		})
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-		vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
-		vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files" })
+		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git files" })
+		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "find string" })
 		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Telescope find grep_string word" })
 		-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope find helps_tag" })
@@ -65,7 +65,5 @@ return {
 		vim.keymap.set("n", "<leader>gfc", builtin.git_commits, { desc = "Telescope find git commits" })
 		vim.keymap.set("n", "<leader>gfs", builtin.git_status, { desc = "Telescope find git status" })
 		vim.keymap.set("n", "<leader>gfb", builtin.git_branches, { desc = "Telescope find git branches" })
-
-		require("telescope").load_extension("file_browser")
 	end,
 }

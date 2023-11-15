@@ -1,8 +1,10 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Netrw" })
 
+vim.keymap.set("n", "sq", ":q<cr>", { desc = "exit" })
+vim.keymap.set("n", "sw", ":wq<cr>", { desc = "save and exit" })
 -- Delete a owrd backwards
-vim.keymap.set("n", "dw", 'vb"_d')
+-- vim.keymap.set("n", "dw", 'vb"_d')
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -14,14 +16,14 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Split window
-vim.keymap.set("n", "ss", ":split<Return>")
-vim.keymap.set("n", "sv", ":vsplit<Return>")
+vim.keymap.set("n", "ss", ":split<Return>", { desc = "split horizontal" })
+vim.keymap.set("n", "sv", ":vsplit<Return>", { desc = "split vertical" })
 -- Move window
-vim.keymap.set("n", "sh", "<C-w>h")
-vim.keymap.set("n", "sk", "<C-w>k")
-vim.keymap.set("n", "sj", "<C-w>j")
-vim.keymap.set("n", "sl", "<C-w>l")
-vim.keymap.set("n", "se", "<C-w>=")
+vim.keymap.set("n", "sh", "<C-w>h", { desc = "go to left spliut window" })
+vim.keymap.set("n", "sk", "<C-w>k", { desc = "go to up split window" })
+vim.keymap.set("n", "sj", "<C-w>j", { desc = "go to down split window" })
+vim.keymap.set("n", "sl", "<C-w>l", { desc = "go to right split window" })
+vim.keymap.set("n", "se", "<C-w>=", { desc = "split equal size" })
 
 -- Resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
