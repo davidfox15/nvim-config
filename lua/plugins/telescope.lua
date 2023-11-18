@@ -1,69 +1,88 @@
 return {
-	"nvim-telescope/telescope.nvim",
-	tag = "0.1.4",
-	-- or                              , branch = '0.1.x',
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-	},
+  "nvim-telescope/telescope.nvim",
+  cmd = "Telescope",
+  version = false, -- telescope did only one release, so use HEAD for now
+  opts = {
+    defaults = {
+      layout_strategy = "horizontal",
+      mappings = {
+        i = {
+          ["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
+          ["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+        },
+      },
+      file_ignore_patterns = {
+        "node_modules",
+      },
+    },
+    pickers = {
+      oldfiles = {
+        find_files = {
+          -- not work (show ./ dir in oldfiles)
+          find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+        },
+      },
+      lsp_references = {
+        initial_mode = "normal",
+        show_line = false,
+      },
+      lsp_definitions = {
+        initial_mode = "normal",
+        show_line = false,
+      },
+    },
+    extensions = {
+      git_status = {
+        initial_mode = "normal",
+      },
 
-	config = function()
-		local telescope = require("telescope")
-		local actions = require("telescope.actions")
-
-		telescope.setup({
-			defaults = {
-				layout_strategy = "horizontal",
-				mappings = {
-					i = {
-						["<C-k>"] = actions.move_selection_previous, -- move to prev result
-						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-					},
-				},
-				file_ignore_patterns = {
-					"node_modules",
-				},
-			},
-			pickers = {
-				oldfiles = {
-					find_files = {
-						-- not work (show ./ dir in oldfiles)
-						find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
-					},
-				},
-				lsp_references = {
-					initial_mode = "normal",
-					show_line = false,
-				},
-				lsp_definitions = {
-					initial_mode = "normal",
-					show_line = false,
-				},
-			},
-			extensions = {
-				git_status = {
-					initial_mode = "normal",
-				},
-
-				grep_string = {
-					initial_mode = "normal",
-				},
-			},
-		})
-		local builtin = require("telescope.builtin")
-
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files" })
-		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git files" })
-		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "find string" })
-		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Telescope find grep_string word" })
-		-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope find helps_tag" })
-		vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", {})
-
-		-- git
-		vim.keymap.set("n", "<leader>gfc", builtin.git_commits, { desc = "Telescope find git commits" })
-		vim.keymap.set("n", "<leader>gfs", builtin.git_status, { desc = "Telescope find git status" })
-		vim.keymap.set("n", "<leader>gfb", builtin.git_branches, { desc = "Telescope find git branches" })
-	end,
+      grep_string = {
+        initial_mode = "normal",
+      },
+    },
+  },
+  keys = function()
+    return {
+      -- find string
+      { "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
+      { "<leader>fs", "<cmd>Telescope grep_string<CR>", mode = { "v" }, desc = "Selection (root dir)" },
+      --find files
+      { "<leader><space>", "<cmd>Telescope find_files<CR>", desc = "Find Files (root dir)" },
+      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files (root dir)" },
+      -- find command history
+      { "<leader>:", "<cmd>Telescope command_history<CR>", desc = "Command History" },
+      -- find config files
+      { "<leader>fc", "<cmd>Telescope config_files<CR>", desc = "Find Config File" },
+      --find in recent files
+      { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      -- git
+      { "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+      -- search
+      { "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", desc = "Word (root dir)" },
+      { "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", mode = { "v" }, desc = "Word (root dir)" },
+      -- others
+      { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
+      -- { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      --{
+      --  "<leader>ss",
+      --  function()
+      --    require("telescope.builtin").lsp_document_symbols({
+      --      symbols = require("lazyvim.config").get_kind_filter(),
+      --    })
+      --  end,
+      --  desc = "Goto Symbol",
+      --},
+      --{
+      --  "<leader>sS",
+      --  function()
+      --    require("telescope.builtin").lsp_dynamic_workspace_symbols({
+      --      symbols = require("lazyvim.config").get_kind_filter(),
+      --    })
+      --  end,
+      --  desc = "Goto Symbol (Workspace)",
+      --},
+    }
+  end,
 }

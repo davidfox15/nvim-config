@@ -1,16 +1,15 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Netrw" })
 
-vim.keymap.set("n", "sq", ":q<cr>", { desc = "exit" })
-vim.keymap.set("n", "sw", ":wq<cr>", { desc = "save and exit" })
--- Delete a owrd backwards
--- vim.keymap.set("n", "dw", 'vb"_d')
+vim.keymap.set("n", "<leader>bq", ":q<cr>", { desc = "exit" })
+vim.keymap.set("n", "<leader>bw", ":wq<cr>", { desc = "save and exit" })
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Do not yank with x
--- vim.keymap.set("n", "x", '"_x')
 
 -- clear search highlights
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
@@ -52,3 +51,23 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- file history
 -- vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undotree" })
+
+-- Disable default tab keymap (lazy)
+vim.keymap.del("n", "<leader>bb")
+vim.keymap.del("n", "<leader>`")
+
+-- windows
+vim.keymap.del("n", "<leader>ww")
+vim.keymap.del("n", "<leader>wd")
+vim.keymap.del("n", "<leader>w-")
+vim.keymap.del("n", "<leader>w|")
+vim.keymap.del("n", "<leader>-")
+vim.keymap.del("n", "<leader>|")
+
+-- Disable default tab keymap (lazy)
+vim.keymap.del("n", "<leader><tab>l")
+vim.keymap.del("n", "<leader><tab>f")
+vim.keymap.del("n", "<leader><tab><tab>")
+vim.keymap.del("n", "<leader><tab>]")
+vim.keymap.del("n", "<leader><tab>d")
+vim.keymap.del("n", "<leader><tab>[")
