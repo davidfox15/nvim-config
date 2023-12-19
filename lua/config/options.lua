@@ -37,7 +37,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 4
 
 vim.opt.updatetime = 50
 
@@ -46,3 +46,5 @@ vim.opt.termguicolors = true
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_liststyle = 3
+
+vim.opt.list = false

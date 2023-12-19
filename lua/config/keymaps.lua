@@ -49,6 +49,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- no copy when paste
 vim.keymap.set("x", "<leader>p", '"_dP')
 
+-- Restart LSP
+vim.keymap.set("n", "<leader>L", ":LspRestart<CR>", { desc = "Restart LSP" })
 -- file history
 -- vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undotree" })
 

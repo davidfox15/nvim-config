@@ -23,17 +23,17 @@ return {
 				},
 			},
 			lsp_references = {
-				initial_mode = "normal",
+				-- initial_mode = "normal",
 				show_line = false,
 			},
 			lsp_definitions = {
-				initial_mode = "normal",
+				-- initial_mode = "normal",
 				show_line = false,
 			},
 		},
 		extensions = {
 			git_status = {
-				initial_mode = "normal",
+				-- initial_mode = "normal",
 			},
 
 			grep_string = {
