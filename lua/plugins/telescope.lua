@@ -64,6 +64,7 @@ return {
 			{ "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", mode = { "v" }, desc = "Word (root dir)" },
 			-- others
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
+			{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },
 			-- { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
 			--{
 			--  "<leader>ss",

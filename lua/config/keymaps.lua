@@ -54,6 +54,9 @@ vim.keymap.set("n", "<leader>L", ":LspRestart<CR>", { desc = "Restart LSP" })
 -- file history
 -- vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undotree" })
 
+-- marks
+vim.keymap.set("n", "<leader>nm", ":delmarks ", { desc = "Delete mark" })
+
 -- Disable default tab keymap (lazy)
 vim.keymap.del("n", "<leader>bb")
 vim.keymap.del("n", "<leader>`")
