@@ -30,6 +30,11 @@ require("lazy").setup({
 		{ "echasnovski/mini.pairs", enabled = false },
 		{ "folke/flash.nvim", enabled = false },
 		{ "stevearc/dressing", enabled = false },
+		{ "folke/todo-comments.nvim", enabled = false },
+		-- { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
+		{ "folke/noice.nvim", enabled = false },
+		{ "folke/neoconf.nvim", enabled = false },
+		-- { "MunifTanjim/nui.nvim", enabled = false },
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
