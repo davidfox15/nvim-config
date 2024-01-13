@@ -59,6 +59,9 @@ return {
 			end
 
 			return {
+				-- lsp find
+				{ "gd", "<cmd>Telescope lsp_definitions<CR>", desc = "Find definitions" },
+				{ "gr", "<cmd>Telescope lsp_references<CR>", desc = "Find references" },
 				-- find string
 				{ "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", desc = "Word (root dir)" },
 				{ "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
