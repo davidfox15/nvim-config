@@ -45,12 +45,12 @@ return {
 
 			mason_tool_installer.setup({
 				ensure_installed = {
-					"prettier", -- prettier formatter
+					"prettierd", -- prettier formatter
+					"eslint_d", -- js linter
 					"stylua", -- lua formatter
-					"isort", -- python formatter
+					-- "isort", -- python formatter
 					-- "black", -- python formatter
 					-- "pylint", -- python linter
-					"eslint_d", -- js linter
 				},
 			})
 		end,
@@ -81,6 +81,7 @@ return {
 					-- Buffer local mappings.
 					local opts = { buffer = ev.buf }
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+					vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
 					-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
