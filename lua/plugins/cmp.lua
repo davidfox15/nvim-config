@@ -1,28 +1,28 @@
 return {
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		"L3MON4D3/LuaSnip",
 		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-		config = function()
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+		},
+		opts = function()
 			local cmp = require("cmp")
-
-			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
-			cmp.setup({
-				preselect = "none",
+			return {
 				completion = {
-					completeopt = "menu,menuone,noinsert,noselect",
+					completeopt = "menu,menuone,noinsert,preview,noselect",
 				},
 				snippet = {
 					expand = function(args)
-						luasnip.lsp_expand(args.body)
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				window = {
@@ -42,10 +42,17 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-					{ name = "buffer" },
 					{ name = "path" },
+					-- { name = "buffer" },
 				}),
-			})
+			}
+		end,
+
+		config = function(_, opts)
+			for _, source in ipairs(opts.sources) do
+				source.group_index = source.group_index or 1
+			end
+			require("cmp").setup(opts)
 		end,
 	},
 }
