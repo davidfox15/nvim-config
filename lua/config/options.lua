@@ -13,7 +13,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.showmatch = true
 vim.opt.incsearch = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 -- Tab
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -43,8 +43,6 @@ vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 vim.opt.scrolloff = 4
 
 vim.opt.updatetime = 50 -- auto save timer
-
-vim.opt.termguicolors = true
 
 vim.opt.list = false
 
