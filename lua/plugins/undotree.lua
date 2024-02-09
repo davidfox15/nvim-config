@@ -1,6 +1,6 @@
 return {
 	"mbbill/undotree",
 	keys = {
-		{ "<leader>pu", ":UndotreeToggle<CR>", desc = "Undotree", noremap = true },
+		{ "<leader>pu", vim.cmd.UndotreeToggle, desc = "Undotree", noremap = true },
 	},
 }

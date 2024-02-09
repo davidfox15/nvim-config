@@ -42,7 +42,7 @@ vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 vim.opt.scrolloff = 4
 
-vim.opt.updatetime = 50 -- auto save timer
+-- vim.opt.updatetime = 50 -- auto save timer
 
 vim.opt.list = false
 
