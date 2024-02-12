@@ -62,12 +62,14 @@ return {
 
 		vim.api.nvim_create_user_command("IlluminationDisable", function()
 			vim.g.illumination = false
+			vim.notify("Illumination off", "info", { title = "vim-illuminate" })
 		end, {
 			desc = "Disable illumination",
 		})
 
 		vim.api.nvim_create_user_command("IlluminationEnable", function()
 			vim.g.illumination = true
+			vim.notify("Illumination on", "info", { title = "vim-illuminate" })
 		end, {
 			desc = "Re-enable illumination",
 		})
