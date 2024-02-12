@@ -3,6 +3,7 @@
 
 -- global vars
 vim.g.auto_format = true
+vim.g.illumination = true
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers
