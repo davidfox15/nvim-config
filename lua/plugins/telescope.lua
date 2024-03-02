@@ -91,6 +91,7 @@ return {
 				-- others
 				{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
 				{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },
+				{ "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics search" },
 			}
 		end,
 	},
