@@ -7,8 +7,7 @@ return {
     { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Trouble document diagnostics" },
   },
   opts = {
-    actions_keys = {
-      use_diagnostic_signs = true,
+    action_keys = {
       close = { "q", "<esc>" },
       cancel = "<c-e>",
     },
