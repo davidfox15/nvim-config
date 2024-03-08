@@ -50,3 +50,5 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- marks
 vim.keymap.set("n", "<leader>nm", ":delmarks ", { desc = "Delete mark" })
+
+vim.keymap.set("n", "<leader>tr", ':exec &nu==&rnu? "se nornu!" : "se rnu!"<cr>', { desc = "Toggle relative number" })
