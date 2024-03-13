@@ -99,9 +99,9 @@ return {
 					buffer = bufnr,
 					exclude = { "<F2>", "<F3>", "<F4>", "gl" },
 				})
-				vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr })
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
-				vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr })
+				vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "rename", buffer = bufnr })
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "actions", buffer = bufnr })
+				vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "diagnostic", buffer = bufnr })
 			end)
 
 			require("lspconfig").tsserver.setup({})
