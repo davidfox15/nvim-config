@@ -11,14 +11,14 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Split window
-vim.keymap.set("n", "ss", ":split<Return>", { desc = "split horizontal" })
-vim.keymap.set("n", "sv", ":vsplit<Return>", { desc = "split vertical" })
+vim.keymap.set("n", ",s", ":split<Return>", { desc = "split horizontal" })
+vim.keymap.set("n", ",v", ":vsplit<Return>", { desc = "split vertical" })
 -- Move window
-vim.keymap.set("n", "sh", "<C-w>h", { desc = "go to left spliut window" })
-vim.keymap.set("n", "sk", "<C-w>k", { desc = "go to up split window" })
-vim.keymap.set("n", "sj", "<C-w>j", { desc = "go to down split window" })
-vim.keymap.set("n", "sl", "<C-w>l", { desc = "go to right split window" })
-vim.keymap.set("n", "se", "<C-w>=", { desc = "split equal size" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "go to left spliut window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "go to up split window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "go to down split window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "go to right split window" })
+-- vim.keymap.set("n", "se", "<C-w>=", { desc = "split equal size" })
 
 -- Resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
