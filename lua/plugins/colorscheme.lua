@@ -1,6 +1,7 @@
 return {
 	{
 		"catppuccin/nvim",
+		enabled = false,
 		lazy = false,
 		name = "catppuccin",
 		priority = 1000,
@@ -26,6 +27,7 @@ return {
 	},
 	{
 		"craftzdog/solarized-osaka.nvim",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {
@@ -33,7 +35,17 @@ return {
 		},
 		config = function(_, opts)
 			require("solarized-osaka").setup(opts)
-			-- vim.cmd.colorscheme("solarized-osaka")
+			vim.cmd.colorscheme("solarized-osaka")
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		enabled = true,
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function()
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 }
