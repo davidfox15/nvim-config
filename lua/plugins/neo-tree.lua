@@ -12,9 +12,12 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
+			close_if_last_window = true,
 			window = {
 				position = "float",
+				width = 60,
 				mappings = {
+					-- ["<esc>"] = "close_window",
 					["<space>"] = "",
 					["h"] = "close_node",
 					["l"] = "open",
