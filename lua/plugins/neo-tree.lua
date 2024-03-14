@@ -7,8 +7,8 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	opts = {
-		vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Neotree" }),
-		vim.keymap.set("n", "<leader>E", ":Neotree reveal=true<cr>", { desc = "Neotree path" }),
+		vim.keymap.set("n", "<leader>E", ":Neotree<CR>", { desc = "Neotree" }),
+		vim.keymap.set("n", "<leader>e", ":Neotree reveal=true<cr>", { desc = "Neotree path" }),
 	},
 	config = function()
 		require("neo-tree").setup({

@@ -8,12 +8,6 @@ return {
 		opts = {
 			defaults = {
 				layout_strategy = "horizontal",
-				-- mappings = {
-				-- i = {
-				-- ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-				-- ["<C-j>"] = actions.move_selection_next, -- move to next result
-				-- },
-				-- },
 				file_ignore_patterns = {
 					"node_modules",
 				},
@@ -92,6 +86,7 @@ return {
 				{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
 				{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },
 				{ "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics search" },
+				{ "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "TodoTelescope" },
 			}
 		end,
 	},
@@ -99,6 +94,14 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			require("telescope").setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
+							["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+						},
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
