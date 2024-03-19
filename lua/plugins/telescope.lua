@@ -87,6 +87,7 @@ return {
 				{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },
 				{ "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics search" },
 				{ "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "TodoTelescope" },
+				{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Telescope buffers" },
 			}
 		end,
 	},
