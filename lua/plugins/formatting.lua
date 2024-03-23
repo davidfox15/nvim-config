@@ -2,6 +2,7 @@ return {
 	"stevearc/conform.nvim",
 	dependencies = {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"mfussenegger/nvim-lint",
 	},
 	opts = {},
 	config = function()
@@ -59,7 +60,9 @@ return {
 		end, { desc = "Toggle formatting on save" })
 
 		vim.keymap.set("n", "<leader>cf", function()
-			require("conform").format({ async = true, lsp_fallback = true })
+			require("conform").format({ async = true, lsp_fallback = true }, function()
+				require("lint").try_lint()
+			end)
 		end, { desc = "format" })
 	end,
 }
