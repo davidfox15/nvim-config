@@ -104,7 +104,23 @@ return {
 				vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "diagnostic", buffer = bufnr })
 			end)
 
-			require("lspconfig").tsserver.setup({})
+			local function organize_imports()
+				local params = {
+					command = "_typescript.organizeImports",
+					arguments = { vim.api.nvim_buf_get_name(0) },
+					title = "",
+				}
+				vim.lsp.buf.execute_command(params)
+			end
+
+			require("lspconfig").tsserver.setup({
+				commands = {
+					OrganizeImports = {
+						organize_imports,
+						description = "Organize Imports",
+					},
+				},
+			})
 			require("lspconfig").rust_analyzer.setup({})
 			require("lspconfig").lua_ls.setup({})
 
