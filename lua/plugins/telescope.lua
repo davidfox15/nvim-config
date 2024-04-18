@@ -59,7 +59,7 @@ return {
 			return {
 				-- lsp find
 				{ "gd", "<cmd>Telescope lsp_definitions<CR>", desc = "Find definitions" },
-				{ "gr", "<cmd>Telescope lsp_references<CR>", desc = "Find references" },
+				{ "gR", "<cmd>Telescope lsp_references<CR>", desc = "Find references" },
 				-- find string
 				{ "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", desc = "Word (root dir)" },
 				{ "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
@@ -79,13 +79,13 @@ return {
 				-- find command history
 				{ "<leader>:", "<cmd>Telescope command_history<CR>", desc = "Command History" },
 				-- find config files
-				{ "<leader>fc", "<cmd>Telescope config_files<CR>", desc = "Find Config File" },
+				-- { "<leader>fc", "<cmd>Telescope config_files<CR>", desc = "Find Config File" },
 				--find in recent files
 				{ "<leader>fo", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Old files" },
 				-- git
-				{ "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
-				{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-				{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+				-- { "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+				{ "<leader>fc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+				{ "<leader>fg", "<cmd>Telescope git_status<CR>", desc = "status" },
 				-- others
 				{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
 				{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },

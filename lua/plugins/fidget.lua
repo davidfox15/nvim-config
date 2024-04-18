@@ -1,3 +1,4 @@
+-- loader in down right coner
 return {
 	"j-hui/fidget.nvim",
 	tag = "v1.0.0",

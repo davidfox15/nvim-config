@@ -8,9 +8,6 @@ return {
 		event = "InsertEnter",
 	},
 	{
-		"jiangmiao/auto-pairs",
-	},
-	{
 		"windwp/nvim-ts-autotag",
 		opts = {},
 	},

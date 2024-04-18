@@ -15,7 +15,7 @@ return {
 			desc = "Go to next harpoon mark",
 		},
 		{
-			"<leader>hp",
+			"<leader>hN",
 			"<cmd>lua require('harpoon.ui').nav_prev()<cr>",
 			desc = "Go to previous harpoon mark",
 		},
