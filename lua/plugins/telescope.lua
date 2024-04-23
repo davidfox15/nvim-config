@@ -107,6 +107,19 @@ return {
 						},
 					},
 				},
+				pickers = {
+
+					buffers = {
+						mappings = {
+							i = {
+								["<C-x>"] = require("telescope.actions").delete_buffer,
+							},
+							n = {
+								["<C-x>"] = require("telescope.actions").delete_buffer,
+							},
+						},
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
