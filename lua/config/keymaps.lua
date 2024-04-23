@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Netrw" })
 
-vim.keymap.set("n", "<leader>bq", ":q<cr>", { desc = "exit" })
-vim.keymap.set("n", "<leader>bw", ":wq<cr>", { desc = "save and exit" })
+vim.keymap.set("n", "<leader>bq", ":q<cr>", { desc = ":q" })
+vim.keymap.set("n", "<leader>bw", ":wq<cr>", { desc = ":wq" })
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights
 
 -- Split window
 vim.keymap.set("n", ",s", ":split<Return>", { desc = "split horizontal" })
-vim.keymap.set("n", ",v", ":vsplit<Return>", { desc = "split vertical" })
+vim.keymap.set("n", ",h", ":vsplit<Return>", { desc = "split vertical" })
 -- Move window
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "go to left spliut window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "go to up split window" })
