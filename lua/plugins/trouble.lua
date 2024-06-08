@@ -7,7 +7,7 @@ return {
 		{ "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble document diagnostics" },
 		{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble quickfix" },
 		{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Trouble Todo" },
-		{ "gr", "<cmd>TroubleToggle lsp_references<cr>", desc = "Trouble lsp_references" },
+		-- { "gr", "<cmd>TroubleToggle lsp_references<cr>", desc = "Trouble lsp_references" },
 	},
 	opts = {
 		action_keys = {

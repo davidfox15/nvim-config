@@ -11,8 +11,8 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Split window
-vim.keymap.set("n", ",s", ":split<Return>", { desc = "split horizontal" })
-vim.keymap.set("n", ",h", ":vsplit<Return>", { desc = "split vertical" })
+vim.keymap.set("n", ",h", ":split<Return>", { desc = "split horizontal" })
+vim.keymap.set("n", ",v", ":vsplit<Return>", { desc = "split vertical" })
 -- Move window
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "go to left spliut window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "go to up split window" })
