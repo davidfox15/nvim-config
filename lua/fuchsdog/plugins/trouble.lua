@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	-- dependencies = { "nvim-tree/nvim-web-icons", "folke/todo-comments.nvim" },
 	opts = {
 		action_keys = {
 			close = { "q", "<esc>" },
@@ -13,6 +14,11 @@ return {
 			"<cmd>Trouble diagnostics toggle<cr>",
 			desc = "Diagnostics (Trouble)",
 		},
+		-- {
+		-- 	"<leader>xw",
+		-- 	"<cmd>Trouble diagnostics toggle workspace_diagnostics<CR>",
+		-- 	desc = "Workspace Diagnostics (Trouble)",
+		-- },
 		{
 			"<leader>xd",
 			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
@@ -23,12 +29,12 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
-		{
-			"gt",
-			"<cmd>Trouble lsp_type_definitions togg<cr>",
-			desc = "Type defenition (Trouble)",
-		},
-		{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Trouble Todo" },
+		-- {
+		-- 	"gt",
+		-- 	"<cmd>Trouble lsp_type_definitions togg<cr>",
+		-- 	desc = "Type defenition (Trouble)",
+		-- },
+		-- { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Trouble Todo" },
 		{
 			"<leader>xq",
 			"<cmd>Trouble close<cr>",

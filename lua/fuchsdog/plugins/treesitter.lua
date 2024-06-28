@@ -11,20 +11,17 @@ return {
 					"javascript",
 					"typescript",
 					"tsx",
-					-- "html",
-					-- "scss",
-					-- "css",
-					-- "json",
-					-- "rust",
-					-- "c",
+					"html",
+					"scss",
+					"css",
+					"json",
+					"markdown",
+					"markdown_inline",
+					"gitignore",
+					"bash",
+					"rust",
+					"c",
 				},
-
-				-- Install parsers synchronously (only applied to `ensure_installed`)
-				sync_install = false,
-
-				-- Automatically install missing parsers when entering buffer
-				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-				auto_install = true,
 
 				highlight = {
 					enable = true,
@@ -41,6 +38,17 @@ return {
 				},
 
 				indent = { enable = true },
+
+				-- Visual by treesitter elements
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "<S-space>",
+						node_incremental = "<S-space>",
+						scope_Incremental = false,
+						node_decremental = "<bs>",
+					},
+				},
 			})
 		end,
 	},
@@ -54,7 +62,7 @@ return {
 			})
 			vim.keymap.set("n", "gc", function()
 				require("treesitter-context").go_to_context(vim.v.count1)
-			end, { silent = true })
+			end, { silent = true, desc = "Go to context" })
 		end,
 	},
 }

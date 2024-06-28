@@ -1,26 +1,27 @@
 return {
 	"mfussenegger/nvim-lint",
-	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
-	opts = {
-		-- Event to trigger linters
-		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
-		linters_by_ft = {
+	config = function()
+		local lint = require("lint")
+
+		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			python = { "pylint" },
 			css = { "stylelint" },
-		},
-	},
-	config = function(_, opts)
-		local lint = require("lint")
+		}
+
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-		lint.linters_by_ft = opts.linters_by_ft
-
-		vim.api.nvim_create_autocmd(opts.events, {
+		vim.api.nvim_create_autocmd({
+			-- Event to trigger linters
+			-- "BufReadPost"
+			"BufEnter",
+			"BufWritePost",
+			"InsertLeave",
+		}, {
 			group = lint_augroup,
 			callback = function()
 				lint.try_lint()

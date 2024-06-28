@@ -1,5 +1,6 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 -- global vars
 vim.g.auto_format = true
@@ -22,6 +23,7 @@ vim.opt.hlsearch = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+-- Change tab to spaces
 -- vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -52,3 +54,9 @@ vim.opt.list = false
 
 -- colored 80 col
 -- vim.opt.colorcolumn = "80"
+
+vim.opt.synmaxcol = 240
+vim.opt.inccommand = "split"
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.opt.backspace = "indent,eol,start"

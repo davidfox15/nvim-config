@@ -1,25 +1,10 @@
 return {
 	"stevearc/conform.nvim",
-	dependencies = {
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		"mfussenegger/nvim-lint",
-	},
-	opts = {},
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"prettierd", -- prettier formatter
-				"eslint_d", -- js linter
-				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"pylint", -- python linter
-				"rustfmt",
-				"stylelint",
-			},
-		})
+		local conform = require("conform")
 
-		require("conform").setup({
+		conform.setup({
 			formatters_by_ft = {
 				-- Use a sub-list to run only the first available formatter
 				javascript = { { "prettierd", "prettier" } },
@@ -39,7 +24,7 @@ return {
 			},
 			format_on_save = function()
 				if vim.g.auto_format then
-					return { timeout_ms = 500, lsp_fallback = true }
+					return { timeout_ms = 1000, lsp_fallback = true, async = false }
 				end
 			end,
 		})
