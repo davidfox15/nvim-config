@@ -11,6 +11,20 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+		-- Add border to float windows
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+		vim.diagnostic.config({
+			float = {
+				border = "rounded",
+			},
+			-- LSP signs takes precedence over gitsigns
+			signs = {
+				priority = 101,
+			},
+			-- LSP signs order
+			severity_sort = true,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -33,6 +47,8 @@ return {
 				vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
 				opts.desc = "Restart LSP"
 				vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+				opts.desc = "Symbol information"
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			end,
 		})
 

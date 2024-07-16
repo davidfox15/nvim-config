@@ -8,7 +8,8 @@ return {
 		end
 		require("lualine").setup({
 			options = {
-				theme = "dracula",
+				-- theme = "dracula",
+				theme = "auto",
 			},
 			sections = {
 				lualine_a = {
