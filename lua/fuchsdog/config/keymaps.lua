@@ -57,3 +57,6 @@ vim.keymap.set("n", "<leader>tr", ':exec &nu==&rnu? "se nornu!" : "se rnu!"<cr>'
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Buffer next" })
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Buffer prev" })
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Buffer delete" })
+
+-- open tmux-sessionizer
+vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux-sessionizer" })
