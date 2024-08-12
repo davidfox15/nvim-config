@@ -7,17 +7,17 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				-- Use a sub-list to run only the first available formatter
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				svelte = { { "prettierd", "prettier" } },
-				css = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				yaml = { { "prettierd", "prettier" } },
-				markdown = { { "prettierd", "prettier" } },
-				graphql = { { "prettierd", "prettier" } },
+				javascript = { "prettierd", "prettier" },
+				typescript = { "prettierd", "prettier" },
+				javascriptreact = { "prettierd", "prettier" },
+				typescriptreact = { "prettierd", "prettier" },
+				svelte = { "prettierd", "prettier" },
+				css = { "prettierd", "prettier" },
+				html = { "prettierd", "prettier" },
+				json = { "prettierd", "prettier" },
+				yaml = { "prettierd", "prettier" },
+				markdown = { "prettierd", "prettier" },
+				graphql = { "prettierd", "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				rust = { "rustfmt" },
@@ -45,9 +45,14 @@ return {
 		end, { desc = "Toggle formatting on save" })
 
 		vim.keymap.set("n", "<leader>cf", function()
-			require("conform").format({ async = true, lsp_fallback = true }, function()
-				require("lint").try_lint()
-			end)
+			require("conform").format({ async = true })
 		end, { desc = "format" })
+
+		vim.api.nvim_create_user_command("FormatAll", function()
+			vim.cmd("args **/*.{js,jsx,ts,tsx,json,css,html}")
+			vim.cmd('argdo lua require("conform").format()')
+		end, {
+			desc = "Toggle autoformat-on-save",
+		})
 	end,
 }
