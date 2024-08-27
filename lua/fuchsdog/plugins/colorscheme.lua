@@ -4,7 +4,18 @@ return {
 		name = "rose-pine",
 		enable = true,
 		config = function()
+			local palette = require("rose-pine.palette")
+			require("rose-pine").setup({
+				highlight_groups = {
+					Visual = { fg = palette.love },
+				},
+			})
+
 			vim.cmd("colorscheme rose-pine")
+
+			vim.api.nvim_set_hl(0, "IlluminatedWordText", { fg = "#50ab59", underline = true })
+			vim.api.nvim_set_hl(0, "IlluminatedWordRead", { fg = "#50ab59", underline = true })
+			vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { fg = "#50ab59", underline = true })
 		end,
 	},
 	{
@@ -30,7 +41,7 @@ return {
 				-- 		DiagnosticVirtualTextHint = { bg = colors.none },
 				-- 	},
 			})
-			vim.cmd.colorscheme("catppuccin-macchiato")
+			-- vim.cmd.colorscheme("catppuccin-macchiato")
 		end,
 	},
 	{
@@ -43,7 +54,7 @@ return {
 		},
 		config = function(_, opts)
 			require("solarized-osaka").setup(opts)
-			vim.cmd.colorscheme("solarized-osaka")
+			-- vim.cmd.colorscheme("solarized-osaka")
 		end,
 	},
 	{
@@ -55,7 +66,7 @@ return {
 		config = function()
 			-- storm dark
 			-- day light
-			vim.cmd.colorscheme("tokyonight-storm")
+			-- vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
 }
