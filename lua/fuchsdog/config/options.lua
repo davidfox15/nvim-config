@@ -4,7 +4,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- global vars
 vim.g.auto_format = true
-vim.g.illumination = true
+vim.g.illumination = false
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers

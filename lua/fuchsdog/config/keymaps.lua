@@ -18,7 +18,7 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "go to left spliut window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "go to up split window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "go to down split window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "go to right split window" })
-vim.keymap.set("n", "se", "<C-w>=", { desc = "split equal size" })
+vim.keymap.set("n", ",e", "<C-w>=", { desc = "split equal size" })
 
 -- Resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
