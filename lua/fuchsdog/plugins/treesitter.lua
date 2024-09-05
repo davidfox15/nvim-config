@@ -43,10 +43,10 @@ return {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<S-space>",
-						node_incremental = "<S-space>",
-						scope_Incremental = false,
-						node_decremental = "<bs>",
+						init_selection = "gnn", -- Начать визуальное выделение по контексту
+						node_incremental = "grn", -- Расширить выделение
+						node_decremental = "grm", -- Уменьшить выделение
+						scope_incremental = "grc", -- Расширить выделение до области
 					},
 				},
 			})

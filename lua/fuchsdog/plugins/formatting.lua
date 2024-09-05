@@ -45,7 +45,13 @@ return {
 		end, { desc = "Toggle formatting on save" })
 
 		vim.keymap.set("n", "<leader>cf", function()
-			require("conform").format({ async = true })
+			local lint = require("lint")
+			require("conform").format({
+				async = true,
+				callback = function()
+					lint.try_lint()
+				end,
+			})
 		end, { desc = "format" })
 
 		vim.api.nvim_create_user_command("FormatAll", function()
