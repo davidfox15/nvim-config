@@ -23,7 +23,7 @@ vim.opt.hlsearch = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.smartindent = true
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -44,7 +44,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 6
 
 -- vim.opt.updatetime = 50 -- auto save timer
 
@@ -58,3 +58,14 @@ vim.opt.inccommand = "split"
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.backspace = "indent,eol,start"
+
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = "a"
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
