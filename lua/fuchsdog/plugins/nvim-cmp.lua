@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-nvim-lsp",
 		{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
@@ -11,6 +12,7 @@ return {
 	config = function()
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
+		luasnip.config.setup({})
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -29,6 +31,11 @@ return {
 				end,
 			},
 			sources = {
+				{
+					name = "lazydev",
+					-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+					group_index = 0,
+				},
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },

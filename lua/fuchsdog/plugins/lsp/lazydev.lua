@@ -27,18 +27,6 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
-			vim.diagnostic.config({
-				float = {
-					border = "rounded",
-				},
-				-- LSP signs takes precedence over gitsigns
-				signs = {
-					priority = 101,
-				},
-				-- LSP signs order
-				severity_sort = true,
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -62,6 +50,18 @@ return {
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 					map("K", vim.lsp.buf.hover, "Symbol information")
 					map("<leader>cd", vim.diagnostic.open_float, "Code diagnostic")
+
+					vim.diagnostic.config({
+						float = {
+							border = "rounded",
+						},
+					})
+
+					vim.lsp.handlers["textDocument/hover"] =
+						vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+					vim.lsp.handlers["textDocument/signatureHelp"] =
+						vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -97,11 +97,11 @@ return {
 					-- code, if the language server you are using supports them
 					--
 					-- This may be unwanted, since they displace some of your code
-					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-						end, "[T]oggle Inlay [H]ints")
-					end
+					-- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+					-- 	map("<leader>th", function()
+					-- 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+					-- 	end, "[T]oggle Inlay [H]ints")
+					-- end
 				end,
 			})
 
@@ -151,7 +151,8 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 
-				"tsserver",
+				-- We have typescript-tools
+				-- "tsserver",
 				"html",
 				"cssls",
 				"tailwindcss",
