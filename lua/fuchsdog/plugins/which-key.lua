@@ -27,6 +27,9 @@ return {
 			},
 			c = {
 				name = "Code actions",
+				i = {
+					name = "Imports actions",
+				},
 			},
 			b = {
 				name = "Buffer actions",

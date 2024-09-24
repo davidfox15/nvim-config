@@ -74,7 +74,7 @@ return {
 			desc = "Re-enable illumination",
 		})
 
-		vim.keymap.set("n", "<leader>th", function()
+		vim.keymap.set("n", "<leader>ti", function()
 			if vim.g.illumination then
 				vim.cmd("IlluminationDisable")
 			else

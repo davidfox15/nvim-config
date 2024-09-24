@@ -23,10 +23,6 @@ return {
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
-	-- {
-	-- 	"alvan/vim-closetag",
-	-- 	event = "InsertEnter",
-	-- },
 	{
 		"windwp/nvim-ts-autotag",
 		opts = {},

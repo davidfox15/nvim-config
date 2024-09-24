@@ -1,8 +1,8 @@
 return {
 	{
 		"rose-pine/neovim",
+		enabled = false,
 		name = "rose-pine",
-		enable = true,
 		config = function()
 			local palette = require("rose-pine.palette")
 			require("rose-pine").setup({
@@ -11,7 +11,7 @@ return {
 				},
 			})
 
-			vim.cmd("colorscheme rose-pine")
+			vim.cmd.colorscheme("rose-pine")
 
 			vim.api.nvim_set_hl(0, "IlluminatedWordText", { fg = "#50ab59", underline = true })
 			vim.api.nvim_set_hl(0, "IlluminatedWordRead", { fg = "#50ab59", underline = true })
@@ -20,15 +20,13 @@ return {
 	},
 	{
 		"catppuccin/nvim",
-		enabled = false,
-		lazy = false,
 		name = "catppuccin",
-		priority = 1000,
 		config = function()
 			-- local colors = require("catppuccin.palettes").get_palette()
 			-- colors.none = "NONE"
 			require("catppuccin").setup({
-				-- 	flavour = "frappe",
+				show_end_of_buffer = true,
+				-- flavour = "frappe",
 				-- transparent_background = true,
 				-- 	custom_highlights = {
 				-- 		Comment = { fg = colors.overlay1 },
@@ -39,9 +37,9 @@ return {
 				-- 		DiagnosticVirtualTextWarn = { bg = colors.none },
 				-- 		DiagnosticVirtualTextInfo = { bg = colors.none },
 				-- 		DiagnosticVirtualTextHint = { bg = colors.none },
-				-- 	},
+				-- },
 			})
-			-- vim.cmd.colorscheme("catppuccin-macchiato")
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 	{

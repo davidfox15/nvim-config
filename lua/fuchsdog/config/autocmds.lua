@@ -4,16 +4,30 @@
 
 -- This file is automatically loaded by lazyvim.config.init.
 
-local function augroup(name)
-	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
+-- local function augroup(name)
+-- 	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+-- end
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-	group = augroup("resize_splits"),
-	callback = function()
-		local current_tab = vim.fn.tabpagenr()
-		vim.cmd("tabdo wincmd =")
-		vim.cmd("tabnext " .. current_tab)
-	end,
+-- vim.api.nvim_create_autocmd({ "VimResized" }, {
+-- 	group = augroup("resize_splits"),
+-- 	callback = function()
+-- 		local current_tab = vim.fn.tabpagenr()
+-- 		vim.cmd("tabdo wincmd =")
+-- 		vim.cmd("tabnext " .. current_tab)
+-- 	end,
+-- })
+
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		border = "rounded",
+		focusable = true,
+	},
+	-- LSP signs takes precedence over gitsigns
+	signs = {
+		priority = 101,
+	},
+	-- LSP signs order
+	severity_sort = true,
 })

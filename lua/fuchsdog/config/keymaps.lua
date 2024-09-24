@@ -51,7 +51,7 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 -- marks
 vim.keymap.set("n", "<leader>nm", ":delmarks ", { desc = "Delete mark" })
 
-vim.keymap.set("n", "<leader>tr", ':exec &nu==&rnu? "se nornu!" : "se rnu!"<cr>', { desc = "Toggle relative number" })
+-- vim.keymap.set("n", "<leader>tr", ':exec &nu==&rnu? "se nornu!" : "se rnu!"<cr>', { desc = "Toggle relative number" })
 
 -- work with buffers
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Buffer next" })
