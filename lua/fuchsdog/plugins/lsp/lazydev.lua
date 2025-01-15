@@ -173,6 +173,9 @@ return {
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
+						if server_name == "tsserver" then
+							return -- skip tsserver, because we have typescript-tools
+						end
 						local server = servers[server_name] or {}
 						-- This handles overriding only values explicitly passed
 						-- by the server configuration above. Useful when disabling
@@ -182,6 +185,26 @@ return {
 					end,
 				},
 			})
+
+			-- Переменная для отслеживания состояния
+			local diagnostics_visible = true
+			-- Функция переключения диагностики
+			local function toggle_diagnostics()
+				if diagnostics_visible then
+					vim.diagnostic.hide()
+					diagnostics_visible = false
+					print("Diagnostics hidden")
+				else
+					vim.diagnostic.show()
+					diagnostics_visible = true
+					print("Diagnostics shown")
+				end
+			end
+
+			-- Привязка клавиши для вызова функции
+			vim.keymap.set("n", "<leader>nd", function()
+				toggle_diagnostics()
+			end, { noremap = true, silent = true, desc = "Toggle diagnostics" })
 		end,
 	},
 }
