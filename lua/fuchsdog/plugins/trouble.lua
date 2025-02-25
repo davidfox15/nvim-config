@@ -1,6 +1,5 @@
 return {
 	"folke/trouble.nvim",
-	-- dependencies = { "nvim-tree/nvim-web-icons", "folke/todo-comments.nvim" },
 	opts = {
 		action_keys = {
 			close = { "q", "<esc>" },
@@ -19,11 +18,11 @@ return {
 		-- 	"<cmd>Trouble diagnostics toggle workspace_diagnostics<CR>",
 		-- 	desc = "Workspace Diagnostics (Trouble)",
 		-- },
-		{
-			"<leader>xd",
-			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-			desc = "Buffer Diagnostics (Trouble)",
-		},
+		-- {
+		-- 	"<leader>xd",
+		-- 	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+		-- 	desc = "Buffer Diagnostics (Trouble)",
+		-- },
 		{
 			"<leader>xf",
 			"<cmd>Trouble qflist toggle<cr>",
@@ -41,14 +40,16 @@ return {
 			desc = "Close (Trouble)",
 		},
 		-- { "gr", "<cmd>TroubleToggle lsp_references<cr>", desc = "Trouble lsp_references" },
-		-- 		{ "<lead>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble workspace diagnostics" },
-		-- 		{ "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble document diagnostics" },
-		-- 		{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble quickfix" },
+		-- { "<lead>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble workspace diagnostics" },
+		-- { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble document diagnostics" },
+		-- { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble quickfix" },
 	},
 	config = function()
 		require("trouble").setup({
 			-- auto_close = true, -- auto close when there are no items
 			focus = true, -- Focus the window when opened
 		})
+
+		vim.api.nvim_set_hl(0, "TroubleNormal", { bg = "none" })
 	end,
 }

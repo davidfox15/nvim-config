@@ -42,8 +42,12 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- no copy when paste
+-- paste without copy
 vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- delete without copy
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
 
 -- file history
 -- vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undotree" })
@@ -60,3 +64,6 @@ vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Buffer delete" })
 
 -- open tmux-sessionizer
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux-sessionizer" })
+
+-- substitute word
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Substitute word" })

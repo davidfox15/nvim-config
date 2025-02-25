@@ -62,7 +62,7 @@ vim.opt.backspace = "indent,eol,start"
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+-- vim.opt.showmode = false
 
 vim.opt.iskeyword:remove("_") -- Add snake case support
 

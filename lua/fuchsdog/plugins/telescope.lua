@@ -1,11 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
+	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	cmd = "Telescope",
 	version = false, -- telescope did only one release, so use HEAD for now
@@ -54,6 +55,7 @@ return {
 			},
 		},
 		extensions = {
+			fzf = {},
 			git_status = {
 				-- initial_mode = "normal",
 			},
@@ -118,6 +120,7 @@ return {
 	end,
 	config = function(_, opts)
 		require("telescope").setup(opts)
+		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select") -- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 		-- Slightly advanced example of overriding default behavior and theme
