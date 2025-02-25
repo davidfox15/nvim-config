@@ -19,6 +19,9 @@ return {
 				},
 			},
 			layout_strategy = "horizontal",
+			layout_config = {
+				horizontal = { width = 0.9 },
+			},
 			file_ignore_patterns = {
 				"public",
 				"node_modules",
@@ -82,8 +85,6 @@ return {
 		end
 
 		return {
-
-			-- find string
 			{ "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", desc = "Word (root dir)" },
 			{ "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
 			{
@@ -96,14 +97,7 @@ return {
 				mode = { "v" },
 				desc = "Selection (root dir)",
 			},
-			--find files
-			-- { "<leader><space>", "<cmd>Telescope find_files<CR>",                desc = "Find Files (root dir)" },
 			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files (root dir)" },
-			-- find command history
-			{ "<leader>:", "<cmd>Telescope command_history<CR>", desc = "Command History" },
-			-- find config files
-			-- { "<leader>fc", "<cmd>Telescope config_files<CR>", desc = "Find Config File" },
-			--find in recent files
 			{ "<leader>fo", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Old files" },
 			-- git
 			-- { "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
@@ -122,24 +116,16 @@ return {
 		require("telescope").setup(opts)
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select") -- See `:help telescope.builtin`
+
 		local builtin = require("telescope.builtin")
-		-- Slightly advanced example of overriding default behavior and theme
+
 		vim.keymap.set("n", "<leader>f/", function()
-			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
-		-- It's also possible to pass additional configuration options.
-		--  See `:help telescope.builtin.live_grep()` for information about particular keys
-		vim.keymap.set("n", "<leader>f?", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-			})
-		end, { desc = "[S]earch [/] in Open Files" })
-		-- Shortcut for searching your Neovim configuration files
+
 		vim.keymap.set("n", "<leader>fn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
