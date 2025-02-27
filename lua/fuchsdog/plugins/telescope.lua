@@ -85,7 +85,6 @@ return {
 		end
 
 		return {
-			{ "<leader>fw", "<cmd>Telescope grep_string word_match=-w<CR>", desc = "Word (root dir)" },
 			{ "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
 			{
 				"<leader>fs",
@@ -118,6 +117,16 @@ return {
 		require("telescope").load_extension("ui-select") -- See `:help telescope.builtin`
 
 		local builtin = require("telescope.builtin")
+
+		vim.keymap.set("n", "<leader>fw", function()
+			local word = vim.fn.expand("<cword>")
+			builtin.grep_string({ search = word })
+		end, { desc = "Find word (root dir)" })
+
+		vim.keymap.set("n", "<leader>fW", function()
+			local word = vim.fn.expand("<cWORD>")
+			builtin.grep_string({ search = word })
+		end, { desc = "Find WORD (root dir)" })
 
 		vim.keymap.set("n", "<leader>f/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
