@@ -86,22 +86,12 @@ return {
 
 		return {
 			{ "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Grep (root dir)" },
-			{
-				"<leader>fs",
-				function()
-					local tb = require("telescope.builtin")
-					local text = vim.getVisualSelection()
-					tb.live_grep({ default_text = text })
-				end,
-				mode = { "v" },
-				desc = "Selection (root dir)",
-			},
-			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files (root dir)" },
-			{ "<leader>fo", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Old files" },
+			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "[F]ind [F]iles" },
+			{ "<leader>fo", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "[F]ind [O]ld files" },
 			-- git
-			-- { "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
-			{ "<leader>fc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-			{ "<leader>fg", "<cmd>Telescope git_status<CR>", desc = "status" },
+			{ "<leader>fgf", "<cmd>Telescope git_files<CR>", desc = "[F]ind [G]it [F]iles" },
+			{ "<leader>fgc", "<cmd>Telescope git_commits<CR>", desc = "[F]ind [G]it [C]commits" },
+			{ "<leader>fgs", "<cmd>Telescope git_status<CR>", desc = "[F]ind [G]it [S]status" },
 			-- others
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags" },
 			{ "<leader>fl", "<cmd>Telescope resume<CR>", desc = "Last search" },
@@ -114,7 +104,7 @@ return {
 	config = function(_, opts)
 		require("telescope").setup(opts)
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("ui-select") -- See `:help telescope.builtin`
+		require("telescope").load_extension("ui-select")
 
 		local builtin = require("telescope.builtin")
 
@@ -127,6 +117,13 @@ return {
 			local word = vim.fn.expand("<cWORD>")
 			builtin.grep_string({ search = word })
 		end, { desc = "Find WORD (root dir)" })
+
+		vim.keymap.set("v", "<leader>fs", function()
+			local text = vim.getVisualSelection()
+			builtin.live_grep({ default_text = text })
+		end, {
+			desc = "[F]ind [S]election",
+		})
 
 		vim.keymap.set("n", "<leader>f/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
