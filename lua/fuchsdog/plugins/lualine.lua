@@ -7,6 +7,11 @@ return {
 			return "{…}" .. vim.fn["codeium#GetStatusString"]()
 		end
 
+		-- Добавляем кастомный компонент для Fugitive
+		local function fugitive_status()
+			return vim.fn.FugitiveStatusline() or "" -- Получаем статус Git от fugitive
+		end
+
 		local colors = {
 			bg = "#202328",
 			fg = "#bbc2cf",
@@ -35,7 +40,10 @@ return {
 					-- 	end,
 					-- },
 				},
-				lualine_b = {},
+				lualine_b = {
+					-- fugitive_status,
+					"branch",
+				},
 				-- lualine_b = { "branch" },
 				lualine_c = { { "filename", path = 1 } },
 				lualine_x = {

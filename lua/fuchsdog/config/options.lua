@@ -10,7 +10,7 @@ vim.g.illumination = false
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
-vim.opt.cursorline = true -- highlight the current cursor line
+-- vim.opt.cursorline = true -- highlight the current cursor line
 
 vim.opt.title = true
 -- Search
